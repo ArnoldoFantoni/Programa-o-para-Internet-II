@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form id="form" action="processa.php" method="post">
+        <div>
+            <label for="nomeUser">Nome Completo:</label>
+            <input type="text" id="nomeUser" name="nome">
+            <!-- <input type="text" id="nomeUser" name="nome" required> -->
+        </div>
+        <div>
+            <label for="assuntoMSG">Assunto:</label>
+            <select name="assunto" id="assuntoMSG">
+                <option value="duvida">Dúvida</option>
+                <option value="matricula">Matricula</option>
+            </select>
+        </div>
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <script>
+        const formulario = document.getElementById("form");
+
+        formulario.addEventListener('submit', function(evento){
+            
+            const nome = document.getElementById("nomeUser").value;
+            
+            if(nome == ""){
+                alert("O campo nome é obrigatório")
+                evento.preventDefault(); //-- não deixa submeter quando tiver erro.
+            }
+        })
+
+    </script>
+</body>
+</html>
